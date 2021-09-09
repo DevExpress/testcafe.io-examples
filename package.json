@@ -1,0 +1,18 @@
+{
+  "name": "testcafe.io-examples",
+  "version": "1.0.0",
+  "author": {
+    "name": "Developer Express Inc.",
+    "url": "https://www.devexpress.com/"
+  },
+  "description": "This repository contains code examples for https://testcafe.io",
+  "dependencies": {
+    "eslint": "^6.8.0",
+    "testcafe": "^1.16.0"
+  },
+  "scripts": {
+    "lint": "eslint interfaces/**/*.js",
+    "examples": "node testing/index.js",
+    "test": "npm run lint & npm run examples"
+  }
+}
