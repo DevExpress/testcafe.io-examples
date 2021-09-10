@@ -7,6 +7,7 @@ const promisifiedExec = promisify(exec);
 
 const programmaticInterfaceExecutables = [
     '../interfaces/programmatic/create-testcafe/regular/index.js',
+    '../interfaces/programmatic/create-testcafe/ssl/index.js',
 ];
 
 const symbols = platform() === 'win32' ?
