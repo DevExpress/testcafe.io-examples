@@ -6,7 +6,7 @@ const { platform }         = require('os');
 const promisifiedExec = promisify(exec);
 
 const programmaticInterfaceExecutables = [
-    '../interfaces/programmatic/create-testcafe/regular.js',
+    '../interfaces/programmatic/create-testcafe/regular/index.js',
 ];
 
 const symbols = platform() === 'win32' ?
