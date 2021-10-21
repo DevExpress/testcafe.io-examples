@@ -8,7 +8,7 @@ const element = Selector(() => {
     return document.getElementById(storedElementId);
 });
 
-fixture `Selector - initialize on client side without params`
+fixture `Initialize selector with function on client side without param`
     .page `https://devexpress.github.io/testcafe/example/`
     .clientScripts({ content: 'window.localStorage.setItem("storedElementId", "submit-button")' });
 
