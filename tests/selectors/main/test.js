@@ -1,10 +1,10 @@
 import { Selector } from 'testcafe';
 
-const article = Selector('#article-content');
+const main = Selector('#main-content');
 
 fixture `Selector`
-    .page `./index.html`;
+    .page `https://devexpress.github.io/testcafe/example/`;
 
-test('Article content exists', async (t) => {
-    await t.expect(article.exists).ok();
+test('Main content exists', async (t) => {
+    await t.expect(main.exists).ok();
 });
