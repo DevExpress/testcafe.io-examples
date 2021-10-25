@@ -1,6 +1,6 @@
 import { Selector } from 'testcafe';
 
-const main = Selector('#main-content');
+const main = Selector('.main-content');
 
 fixture `Selector`
     .page `https://devexpress.github.io/testcafe/example/`;
