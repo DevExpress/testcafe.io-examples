@@ -16,3 +16,12 @@ test('Snapshot of the ".form-bottom" is ok', async (t) => {
 
     await t.expect(snapshot).ok();
 });
+
+test.page('./index.html')('Should count hidden elements', async (t) => {
+    const count = await Selector('div', { visibilityCheck: true }).count;
+
+    // returns 3 since the visibilityCheck option
+    // does not affect the selector's matched set
+
+    await t.expect(count).eql(3);
+});
