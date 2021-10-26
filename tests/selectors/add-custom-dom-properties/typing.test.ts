@@ -8,8 +8,8 @@ interface CustomSnapshot extends NodeSnapshot {
     innerHTML: string;
 }
 
-fixture `Selector.addCustomDOMProperties with TS`
-    .page `https://devexpress.github.io/testcafe/example/`;
+fixture`Selector.addCustomDOMProperties with TS`
+    .page`https://devexpress.github.io/testcafe/example/`;
 
 test('Check Label HTML', async t => {
     // via selector property
