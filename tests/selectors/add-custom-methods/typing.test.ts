@@ -9,7 +9,9 @@ fixture `Selector.addCustomMethods with TS`
     .page `https://js.devexpress.com/`;
 
 test('Check table', async t => {
-    const myTable = <CustomSelector>Selector('#customers').addCustomMethods({
+    const myTable = <CustomSelector>Selector('.dx-datagrid-table')
+        .nth(1)
+        .addCustomMethods({
             getExpandButtonCell: (table: HTMLTableElement, rowIndex: number) => {
                 return table[0].querySelectorAll('.dx-group-row')[rowIndex].cells[0];
             }
