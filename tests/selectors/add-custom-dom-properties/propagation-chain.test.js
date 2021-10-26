@@ -20,8 +20,13 @@ test( 'Check Label HTML', async t => {
     await t.expect( fieldSet.nth( 1 ).legend ).eql( 'Which features are important to you:' );
 
     // This line throws an error.
-    await t.expect( fieldSet.nth( 1 ).getLabel( 3 ).textContent )
-        .eql( 'Easy embedding into a Continuous integration system' );
+    try {
+        await t.expect( fieldSet.nth( 1 ).getLabel( 3 ).textContent )
+            .eql( 'Easy embedding into a Continuous integration system' );
+    }
+    catch (err) {
+        await t.expect( err.errMsg ).eql( 'TypeError: Cannot read properties of null (reading \'innerText\')' );
+    }
 
     // When TestCafe evaluates "getLabel(3)", it also tries to propagate
     // the "legend" property to the result. So, it queries for a
