@@ -1,9 +1,9 @@
 import { Selector } from 'testcafe';
 
-const persistentId = 'submit-button';
+const persistentId = { key: 'id' };
 
 const element = Selector(() => {
-    return document.getElementById(persistentId);
+    return document.querySelector(`[${persistentId.key}="submit-button"]`);
 }, {
     dependencies: { persistentId },
 });
