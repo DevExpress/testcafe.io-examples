@@ -1,17 +1,17 @@
 import { Selector } from 'testcafe';
 
-interface CustomSelector extends Selector {
-    innerHTML: Promise<any>;
-}
-
-interface CustomSnapshot extends NodeSnapshot {
-    innerHTML: string;
-}
-
 fixture`Selector.addCustomDOMProperties with TS`
     .page`https://devexpress.github.io/testcafe/example/`;
 
 test('Check Label HTML', async t => {
+    interface CustomSelector extends Selector {
+        innerHTML: Promise<any>;
+    }
+
+    interface CustomSnapshot extends NodeSnapshot {
+        innerHTML: string;
+    }
+
     // via selector property
     const label = <CustomSelector>Selector('label').addCustomDOMProperties({
         innerHTML: el => el.innerHTML
