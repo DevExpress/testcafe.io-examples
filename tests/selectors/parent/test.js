@@ -4,7 +4,7 @@ fixture`Selector.parent`
     .page`https://devexpress.github.io/testcafe/example/`;
 
 test('Check count of the elements parents', async (t) => {
-    // Selects all ancestors of all ul elements.
+    // Selects all ancestors of all div elements.
     const divParents = Selector('div').parent();
 
     // Selects all closest parents of all input elements.
@@ -13,7 +13,7 @@ test('Check count of the elements parents', async (t) => {
     // Selects all furthest ancestors of all labels.
     const columnFurthestParents = Selector('label').parent(-1);
 
-    // Selects all divs that are ancestors of an 'a' element.
+    // Selects all divs that are ancestors of an 'fieldset' element.
     const fieldsetDivParents = Selector('fieldset').parent('div');
 
     await t.expect(divParents.count).eql(11);
