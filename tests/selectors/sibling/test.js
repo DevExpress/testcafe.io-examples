@@ -7,10 +7,12 @@ test('Check count of the succeeding sibling elements.', async (t) => {
     // Selects all siblings of all input elements.
     const siblingsInput = Selector('input').sibling();
 
-    // Selects all closest succeeding siblings of all div elements.
+    // Selects all div elements' siblings
+    // that go first in their parent's child lists.
     const closestSiblingsDiv = Selector('div').sibling(0);
 
-    // Selects all furthest succeeding siblings of all select elements.
+    // Selects all select elements' siblings
+    // that go last in their parent's child lists.
     const furthestSiblingsFieldset = Selector('select').sibling(-1);
 
     // Selects all fieldset elements that are succeeding siblings of an button element.
