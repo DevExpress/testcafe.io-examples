@@ -14,3 +14,16 @@ interface RequestObject {
         timestamp: Number
     }
 }
+
+import { RequestLogger } from 'testcafe';
+
+const logger = RequestLogger();
+
+fixture`Request object`
+    .page`https://devexpress.github.io/testcafe/example/`
+    .requestHooks(logger);
+
+test('Check request', async t => {
+    const request: RequestObject = logger.requests[0];
+    await t.expect(request.request.method).eql('get');
+});
