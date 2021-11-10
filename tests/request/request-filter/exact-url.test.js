@@ -11,7 +11,8 @@ fixture`Request filter - exact url`
     .requestHooks([logger, mock]);
 
 test('The external request shouldn\'t be logged', async t => {
-    await t.expect(logger.requests.length).eql(1)
-        .navigateTo('http://external-service.com/api/')
-        .expect(logger.requests.length).eql(1);
+    const countRequests = logger.requests.length;
+
+    await t.navigateTo('http://external-service.com/api/')
+        .expect(logger.requests.length).eql(countRequests);
 });
