@@ -12,7 +12,7 @@ fixture`RequestMock.onRequestTo`
 
 test('Should mock requests', async t => {
     await t
-        .expect(Selector('body').innerText).eql('External service was requested.')
+        .expect(Selector('body').innerText).contains('External service was requested.')
         .navigateTo('https://external-service.com/api/users/')
-        .expect(Selector('body').innerText).eql('Users were requested.');
+        .expect(Selector('body').innerText).contains('Users were requested.');
 });
