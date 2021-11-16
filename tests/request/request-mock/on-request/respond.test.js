@@ -1,3 +1,4 @@
+/* eslint-disable max-nested-callbacks */
 import { ClientFunction, RequestMock, Selector } from 'testcafe';
 import * as url from 'url';
 
@@ -32,9 +33,12 @@ test('Should mock requests', async t => {
     const jsonData    = await ClientFunction(() => fetch('https://devexpress.github.io/testcafe/example/json').then(res => res.json()))();
     const htmlStatus  = await ClientFunction(() => fetch('https://devexpress.github.io/testcafe/example/html').then(res => res.status))();
     const emptyStatus = await ClientFunction(() => fetch('https://devexpress.github.io/testcafe/example/empty').then(res => res.status))();
-    const headers     = await ClientFunction(() => fetch('https://devexpress.github.io/testcafe/example/headers').then(res => {
+    const headersInfo = await ClientFunction(() => fetch('https://devexpress.github.io/testcafe/example/headers').then(res => {
         const headers = {};
-        res.headers.forEach((value, key) => headers[key] = value);
+
+        res.headers.forEach((value, key) => {
+            headers[key] = value;
+        });
         return headers;
     }))();
     const binaryData  = new Uint8Array(await ClientFunction(() => fetch('https://devexpress.github.io/testcafe/example/binary')
@@ -44,7 +48,7 @@ test('Should mock requests', async t => {
         .expect(jsonData).eql({ data: 123 })
         .expect(htmlStatus).eql(200)
         .expect(emptyStatus).eql(204)
-        .expect(headers).contains({ server: 'nginx/1.10.3' })
+        .expect(headersInfo).contains({ server: 'nginx/1.10.3' })
         .expect(binaryData).contains([98, 117, 102, 102, 101, 114])
         .navigateTo('https://devexpress.github.io/testcafe/example/custom?param=value')
         .expect(Selector('body').innerText).contains('calculated body value');
