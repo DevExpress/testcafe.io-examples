@@ -1,15 +1,14 @@
-/* eslint-disable no-unused-vars,constructor-super */
-import { RequestHook } from 'testcafe';
-
-class JwtBearerAuthorization extends RequestHook {
-    constructor () {
-        super();
+/* eslint-disable no-unused-vars */
+class RequestHook {
+    constructor (requestFilterRules, responseEventConfigureOpts) {
+        //...
     }
 
-    onRequest (e) {
-        e.requestOptions.headers['Authorization'] = 'generate token here';
+    async onRequest (event) {
+        //...
     }
 
-    onResponse (e) {
+    async onResponse (event) {
+        //...
     }
 }
