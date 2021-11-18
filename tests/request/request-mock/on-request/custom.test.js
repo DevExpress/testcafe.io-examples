@@ -3,6 +3,39 @@ import { ClientFunction, RequestMock, Selector } from 'testcafe';
 
 const https = require('https');
 
+const promisifiedHttpsGet = async (url) => {
+    const data = {};
+    let promiseResolve;
+
+    const promise = new Promise((resolve) => {
+        promiseResolve = resolve;
+    });
+
+    https.get('https://jsonplaceholder.typicode.com/todos/1', (res) => {
+        let body = '';
+
+        res.on('data', (chunk) => {
+            body += chunk;
+        });
+
+        res.on('end', () => {
+            try {
+                data.body = JSON.parse(body);
+            }
+            catch (e) {
+                console.error(e);
+            }
+            promiseResolve();
+        });
+    }).on('error', (e) => {
+        console.error(e);
+    });
+
+    await promise;
+
+    return data;
+};
+
 const templateMock = RequestMock()
     .onRequestTo(/\*...\*/)
     .respond((req, res) => {
@@ -16,27 +49,10 @@ const mock = RequestMock()
     })
     .onRequestTo('https://devexpress.github.io/testcafe/example/todo')
     .respond(async (req, res) => {
-        let body = {};
-        let promiseResolve;
-
-        const promise = new Promise((resolve) => {
-            promiseResolve = resolve;
-        });
-
-        https.get('https://jsonplaceholder.typicode.com/todos/1', (resTodo) => {
-            resTodo.on('data', (d) => {
-                body = JSON.parse(d.toString());
-                promiseResolve();
-            });
-
-        }).on('error', (e) => {
-            console.error(e);
-        });
-
-        await promise;
+        const data = await promisifiedHttpsGet('https://jsonplaceholder.typicode.com/todos/1');
 
         res.headers['access-control-allow-origin'] = '*';
-        res.setBody(body);
+        res.setBody(data.body);
     });
 
 
