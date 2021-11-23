@@ -2,16 +2,16 @@ import { ClientFunction, Selector } from 'testcafe';
 
 const option = Selector('option');
 
-const thirdOption = option.nth(1);
+const secondOption = option.nth(1);
 
 const getSecondOptionHTML = ClientFunction(() => option().innerHTML, {
-    dependencies: { option: thirdOption },
+    dependencies: { option: secondOption },
 });
 
-const fourthOption = option.nth(2);
+const thirdOption = option.nth(2);
 
 const getThirdOptionHTML = getSecondOptionHTML.with({
-    dependencies: { option: fourthOption },
+    dependencies: { option: thirdOption },
 });
 
 fixture`ClientFunction.with`
