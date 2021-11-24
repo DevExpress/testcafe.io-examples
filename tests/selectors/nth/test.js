@@ -4,7 +4,7 @@ fixture`Selector.nth`
     .page`http://devexpress.github.io/testcafe/example/`;
 
 test('Elements exists', async (t) => {
-    // Selects the third ul element.
+    // Selects the third input element.
     const secondInput = Selector('input').nth(2);
 
     // Selects the last div element.
