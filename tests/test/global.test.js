@@ -1,4 +1,4 @@
-fixture `My Fixture`
+fixture`Test global`
     .page('https://devexpress.github.io/testcafe/example');
 
 test('Click a button', async t => {
