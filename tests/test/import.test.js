@@ -1,6 +1,6 @@
 import { test } from 'testcafe';
 
-fixture `My Fixture`
+fixture`Test import`
     .page('https://devexpress.github.io/testcafe/example');
 
 test('Click a button', async t => {
