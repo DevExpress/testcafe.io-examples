@@ -4,5 +4,6 @@ fixture`Test.after`
 test
     .after(async t => {
         await t.click('[data-testid="remote-testing-checkbox"]');
-    })('Click on checkbox', async () => { /* ... */
+    })('Click on checkbox', async () => {
+        /* ... */
     });
