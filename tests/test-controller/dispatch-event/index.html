@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <label for="target">Check</label>
+    <input id="target" type="checkbox">
+    <script>
+        document.querySelector('#target').addEventListener('touchstart', (e) => {
+            e.currentTarget.checked = !e.currentTarget.checked;
+        })
+    </script>
+</body>
+</html>
