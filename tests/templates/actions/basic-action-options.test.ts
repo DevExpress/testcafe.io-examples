@@ -1,4 +1,4 @@
-interface basicOption {
+interface BasicOption {
     speed: Number;
 }
 

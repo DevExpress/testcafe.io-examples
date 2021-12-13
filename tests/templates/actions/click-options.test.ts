@@ -1,4 +1,4 @@
-interface clickOptions {
+interface ClickOptions {
     modifiers: {
         ctrl: Boolean;
         alt: Boolean;
