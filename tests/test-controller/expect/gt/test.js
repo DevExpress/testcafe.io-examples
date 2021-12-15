@@ -3,7 +3,7 @@ import { Selector } from 'testcafe';
 fixture`TestController.expect.gt`
     .page`https://devexpress.github.io/testcafe/example/`;
 
-test('Check count of columns', async t => {
+test('Check width of the element', async t => {
     await t.expect(Selector('#developer-name').clientWidth).gt(100);
 });
 
