@@ -13,6 +13,7 @@ test('Should wait for a value of an element in a timeout', async (t) => {
     catch (e) {
         const tookTime = Date.now() - startTime;
 
-        await t.expect(tookTime > timeoutValue && tookTime < timeoutValue * 2).ok();
+        await t.expect(tookTime).gt(timeoutValue);
+        await t.expect(tookTime).lt(timeoutValue * 2);
     }
 });

@@ -29,5 +29,5 @@ test('Reload after a timeout', async t => {
     await t.wait(timeout);
     await t.eval(() => location.reload(true));
     // Passes after a timeout
-    await t.expect(Date.now() - startTime > timeout).ok();
+    await t.expect(Date.now() - startTime).gt(timeout);
 });
