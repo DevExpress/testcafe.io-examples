@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="show-alert">Alert</button>
+<button id="show-confirm">Confirm</button>
+<button id="show-prompt">Prompt</button>
+<script>
+    document.querySelector('#show-alert').addEventListener('click', () => {
+        alert('Alert');
+    });
+    document.querySelector('#show-confirm').addEventListener('click', () => {
+        confirm('Is it confirm?');
+    });
+    document.querySelector('#show-prompt').addEventListener('click', () => {
+        prompt('Say hello');
+    });
+</script>
+</body>
+</html>
