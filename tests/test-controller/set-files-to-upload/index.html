@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input id="upload-input" type="file" autocomplete="on">
+    <input id="upload-button" type="submit" style="visibility: hidden">
+</body>
+<script>
+    const uploadInput = document.querySelector('#upload-input')
+    const uploadButton = document.querySelector('#upload-button')
+
+    uploadInput.addEventListener('change', (e) => {
+        uploadButton.style.visibility = e.currentTarget.files.length ? 'visible' : 'hidden';
+    })
+</script>
+</html>
