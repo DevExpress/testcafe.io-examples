@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="confirm-subscription">Confirm</button>
+<button id="confirm-account-deletion">Confirm</button>
+<button id="show-prompt">Prompt</button>
+<button id="show-alert">Alert</button>
+<script>
+    document.querySelector('#confirm-subscription').addEventListener('click', () => {
+        confirm('Do you want to subscribe?');
+    });
+    document.querySelector('#confirm-account-deletion').addEventListener('click', () => {
+        confirm('Do you want to delete your account?');
+    });
+    document.querySelector('#show-alert').addEventListener('click', () => {
+        alert('Alert');
+    });
+    document.querySelector('#show-prompt').addEventListener('click', () => {
+        prompt('Say hello');
+    });
+</script>
+</body>
+</html>
