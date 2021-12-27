@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Roles</title>
+</head>
+<body>
+<div id="avatar" style="width: 100px; height: 100px; display: none; background-color: red"></div>
+<script>
+    const avatar = document.querySelector('#avatar');
+    const token  = localStorage.getItem('token');
+
+    if (token)
+        avatar.style.display = 'block';
+
+</script>
+
+</body>
+</html>

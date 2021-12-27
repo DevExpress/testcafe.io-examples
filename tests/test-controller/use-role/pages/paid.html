@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="paid-content">
+    Paid content
+</div>
+<script>
+    const paidContent = document.querySelector('#paid-content');
+    const token       = localStorage.getItem('token');
+
+
+    paidContent.style.display = token ? 'block' : 'none';
+</script>
+</body>
+</html>
