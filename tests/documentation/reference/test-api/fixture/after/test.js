@@ -1,4 +1,4 @@
-const db = [];
+import { db } from './my-utils.js';
 
 fixture`Fixture.after`
     .page`https://devexpress.github.io/testcafe/example/`
