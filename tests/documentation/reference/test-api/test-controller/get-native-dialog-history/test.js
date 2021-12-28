@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 fixture`TestController.getNativeDialogHistory`
     .page`./index.html`;
 

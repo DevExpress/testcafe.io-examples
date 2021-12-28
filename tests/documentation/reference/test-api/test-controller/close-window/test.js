@@ -1,5 +1,3 @@
-import { Selector } from 'testcafe';
-
 fixture`TestController.closeWindow`
     .page`https://devexpress.github.io/testcafe/example/`;
 

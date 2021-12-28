@@ -1,7 +1,5 @@
-import { Selector } from 'testcafe';
-
 fixture`TestCafe`
-    .page('http://www.example.com/');
+    .page('https://www.example.com/');
 
 test('Closing specific windows', async t => {
     const testcafe = await t.openWindow('https://devexpress.github.io/testcafe');
