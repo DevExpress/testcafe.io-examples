@@ -1,3 +1,9 @@
+const reporter = require('../../reporter');
+const tests = [
+    '../../../../tests/documentation/**/*',
+    '../../../../tests/templates/**/*',
+];
+
 (async () => {
     const createTestCafe = require('testcafe');
 
@@ -11,7 +17,8 @@
 
     await testcafe
         .createRunner()
-        .src('test.js')
+        .reporter(reporter)
+        .src(tests)
         .browsers('chrome')
         .run();
 

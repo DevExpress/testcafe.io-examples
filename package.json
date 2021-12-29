@@ -12,7 +12,7 @@
     "testcafe": "^1.16.0"
   },
   "scripts": {
-    "lint": "eslint interfaces/**/*.js",
+    "lint": "eslint interfaces/**/*.js tests/**/*.js",
     "examples": "node testing/index.js",
     "test": "npm run lint & npm run examples"
   }
