@@ -2,7 +2,7 @@ import { ClientFunction } from 'testcafe';
 
 fixture`Fixture.clientScripts`
     .page`https://devexpress.github.io/testcafe/example/`
-    .clientScripts('./mock-date.js');
+    .clientScripts('../../../../../utils/mock-date-get-time.js');
 
 test('Run script from the file', async (t) => {
     const clientFunc = ClientFunction(() => {
@@ -68,7 +68,7 @@ fixture`Fixture.clientScripts`
     .page`https://devexpress.github.io/testcafe/`
     .clientScripts({
         page: /\/testcafe\/example\//,
-        path: './mock-date.js',
+        path: '../../../../../utils/mock-date-get-time.js',
     });
 
 test('Provide Scripts for Specific Pages', async (t) => {
