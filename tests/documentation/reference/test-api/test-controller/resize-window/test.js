@@ -10,3 +10,8 @@ test('Image disappears on small screens', async t => {
         .resizeWindow(200, 100)
         .expect(image.getStyleProperty('display')).eql('none');
 });
+
+test('Should maximize window', async t => {
+    await t
+        .maximizeWindow();
+});
