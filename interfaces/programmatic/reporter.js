@@ -20,15 +20,16 @@ module.exports = function () {
             const time        = this.moment(endTime).format('M/D/YYYY h:mm:ss a');
             const durationMs  = endTime - this.startTime;
             const durationStr = this.moment.duration(durationMs).format('h[h] mm[m] ss[s]');
-
-            this.write(JSON.stringify({
+            const summary = JSON.stringify({
                 time,
                 duration: durationStr,
                 passed:   result.passedCount,
                 failed:   result.failedCount,
                 skipped:  result.skippedCount,
                 warnings: warnings.length,
-            }));
+            });
+
+            this.write(`Task done: ${summary}`);
         },
     };
 };

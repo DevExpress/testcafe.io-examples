@@ -35,7 +35,7 @@ let exitCode = 0;
         const command                = `node ${resolvedExecutablePath}`;
         const executableCwd          = dirname(resolvedExecutablePath);
         const result                 = await promisifiedExec(command, { cwd: executableCwd });
-        const parsedResult           = JSON.parse(result.stdout);
+        const parsedResult           = JSON.parse(result.stdout.match(/(?<=Task done: ){.*}/));
 
         reportExecutionResult(programmaticInterfaceExecutable, parsedResult);
 
