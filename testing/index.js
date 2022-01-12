@@ -15,11 +15,11 @@ const symbols = platform() === 'win32' ?
     { ok: '✓', err: '✖' };
 
 function reportExecutionResult (executable, executionResult) {
-    const { error } = executionResult;
+    const { failed } = executionResult;
 
     let text = '';
 
-    if (error)
+    if (failed)
         text = `${symbols.err} ${executable}`;
     else
         text = `${symbols.ok} ${executable}`;
@@ -35,10 +35,11 @@ let exitCode = 0;
         const command                = `node ${resolvedExecutablePath}`;
         const executableCwd          = dirname(resolvedExecutablePath);
         const result                 = await promisifiedExec(command, { cwd: executableCwd });
+        const parsedResult           = JSON.parse(result.stdout.match(/(?<=Task done: ){.*}/));
 
-        reportExecutionResult(programmaticInterfaceExecutable, result);
+        reportExecutionResult(programmaticInterfaceExecutable, parsedResult);
 
-        if (result.error)
+        if (parsedResult.failed)
             exitCode++;
     }
 

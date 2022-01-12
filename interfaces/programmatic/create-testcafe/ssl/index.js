@@ -1,3 +1,5 @@
+const reporter = require('../../reporter');
+
 (async () => {
     const createTestCafe        = require('testcafe');
     const selfSignedSertificate = require('openssl-self-signed-certificate');
@@ -18,7 +20,7 @@
 
     await testcafe.createRunner()
         .src('test.js')
-
+        .reporter(reporter)
         // Browsers restrict self-signed certificate usage unless you
         // explicitly set a flag specific to each browser.
         // For Chrome, this is '--allow-insecure-localhost'.
