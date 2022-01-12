@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .animation {
+            animation-duration: 500ms;
+            animation-name: disappearance;
+            animation-fill-mode: forwards;
+            opacity: 1;
+        }
+
+        @keyframes disappearance {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1 id="article-header">
+    Article header
+</h1>
+<button id="play-1-sec-animation">Animation</button>
+<script>
+    document.querySelector('#play-1-sec-animation').addEventListener('click', (e) => {
+        document.querySelector('#article-header').classList.toggle('animation');
+    });
+</script>
+</body>
+</html>

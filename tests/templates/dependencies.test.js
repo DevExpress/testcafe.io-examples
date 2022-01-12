@@ -6,7 +6,7 @@ const getArticleHeaderHTML = ClientFunction(() => articleHeader().innerHTML, {
     dependencies: { articleHeader },
 });
 
-fixture`ClientFunction.constructor`
+fixture`Dependencies`
     .page`https://devexpress.github.io/testcafe/example/`;
 
 test('Check innerHtml', async t => {

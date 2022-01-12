@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="item">
+    <p class="item__name">Name</p>
+    <button class="item__delete">Delete</button>
+</div>
+<script>
+    document.querySelector('.item__delete').addEventListener('click', (e) => {
+        const name = prompt('Type item\'s name');
+
+        if (document.querySelector('.item__name').textContent === name)
+            e.currentTarget.closest('.item').remove();
+    });
+</script>
+</body>
+</html>
