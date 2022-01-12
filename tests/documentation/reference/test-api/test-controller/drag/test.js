@@ -1,14 +1,28 @@
 import { Selector } from 'testcafe';
 
-const slider = Selector('#developer-rating');
+const slider = Selector('.ui-slider-handle');
 
-fixture`TestController.drag`
+fixture.only`TestController.drag`
     .page`https://devexpress.github.io/testcafe/example/`;
 
 test('Drag slider', async t => {
+    const sliderValue = await getSliderValue();
+
     await t
-        .click('#i-tried-testcafe')
-        .expect(slider.value).eql(1)
-        .drag('.ui-slider-handle', 360, 0, { offsetX: 10, offsetY: 10 })
-        .expect(slider.value).eql(7);
+        .expect(sliderValue).eql(1)
+        .click('#tried-test-cafe')
+        .drag(slider, 360, 0, { offsetX: 10, offsetY: 10 });
+
+    const newSliderValue = await getSliderValue();
+
+    await t.expect(newSliderValue).eql(5);
 });
+
+async function getSliderValue () {
+    const sliderOffsetLeft = await Selector(slider).offsetLeft;
+    const sliderValue      = await Selector('.slider-value')
+        .find(node => node.parentElement.offsetLeft === sliderOffsetLeft + 8
+            , { sliderOffsetLeft })();
+
+    return +sliderValue.textContent;
+}

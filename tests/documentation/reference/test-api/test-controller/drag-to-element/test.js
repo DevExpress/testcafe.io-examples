@@ -1,12 +1,11 @@
 import { Selector } from 'testcafe';
 
 fixture`TestController.dragToElement`
-    .page`https://devexpress.github.io/testcafe/example/`;
+    .page`https://js.devexpress.com/Demos/WidgetsGallery/Demo/DataGrid/DnDBetweenGrids/jQuery/Light/`;
 
-const designSurfaceItems = Selector('.design-surface').find('.items');
-
-test('Drag an item from the toolbox', async t => {
+test('Drag an item', async t => {
     await t
-        .dragToElement('.toolbox-item.text-input', '.design-surface')
-        .expect(designSurfaceItems.count).gt(0);
+        .switchToIframe('#demoFrame')
+        .dragToElement('#grid2 .dx-datagrid-rowsview .dx-command-drag', '#grid1 .dx-datagrid-rowsview')
+        .expect(Selector('#grid2 .dx-data-row').count).eql(0);
 });
