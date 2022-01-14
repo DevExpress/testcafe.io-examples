@@ -13,11 +13,16 @@ test('Elements exist', async t => {
     // Matches 'ab', 'ac'. Does not match 'bb', 'aa'.
     const elWithRegExp = Selector('div').withText(/a[b-e]/);
 
+    // Selects label elements that contain 'foo' (case-insensitive).
+    // Matches 'foo', 'FOO', 'Foo', 'FooBar'.
+    const elWithCaseInsFoo = Selector('label').withText(/foo/i);
+
     // This selector matches the parent div (.container)
     // and then the child div (.child)
     const elWithChild = Selector('div').withText('foo');
 
     await t.expect(elWithTextFoo.exists).ok();
     await t.expect(elWithRegExp.exists).ok();
+    await t.expect(elWithCaseInsFoo.exists).ok();
     await t.expect(elWithChild.exists).ok();
 });
