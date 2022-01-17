@@ -1,16 +1,3 @@
-interface MouseOptions {
-    modifiers: {
-        ctrl: Boolean;
-        alt: Boolean;
-        shift: Boolean;
-        meta: Boolean;
-    };
-
-    offsetX: Number;
-    offsetY: Number;
-    speed: Number;
-}
-
 import { Selector } from 'testcafe';
 
 const sliderHandle = Selector('.ui-slider-handle');
@@ -25,7 +12,7 @@ test('Set an estimate', async t => {
             offsetX:   10,
             offsetY:   10,
             modifiers: {
-                shift: true
-            }
+                shift: true,
+            },
         });
 });
