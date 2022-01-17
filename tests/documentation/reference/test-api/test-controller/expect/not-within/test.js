@@ -4,7 +4,7 @@ fixture`TestController.expect.notWithin`
     .page`https://devexpress.github.io/testcafe/example/`;
 
 test('ScrollTop of the \'html\' element shouldn\'t be within 100 and 200', async t => {
-    await t.click('#submit-button');
+    await t.scroll('html', 'bottom');
     await t.expect(Selector('html').scrollTop).notWithin(100, 200);
 });
 
