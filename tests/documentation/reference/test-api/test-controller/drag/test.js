@@ -2,7 +2,7 @@ import { Selector } from 'testcafe';
 
 const slider = Selector('.ui-slider-handle');
 
-fixture.only`TestController.drag`
+fixture`TestController.drag`
     .page`https://devexpress.github.io/testcafe/example/`;
 
 test('Drag slider', async t => {
