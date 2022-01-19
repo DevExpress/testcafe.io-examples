@@ -1,16 +1,12 @@
-interface BasicOption {
-    speed: Number;
-}
-
 import { Selector } from 'testcafe';
 
 const nameInput = Selector('#developer-name');
 
-fixture`Action speed`
+fixture`Type text options`
     .page`https://devexpress.github.io/testcafe/example/`;
 
-test('Type name', async t => {
+test('Retype a name', async t => {
     await t
         .typeText(nameInput, 'Peter')
-        .typeText(nameInput, ' Parker', { speed: 0.1 });
+        .typeText(nameInput, 'Parker', { replace: true });
 });
