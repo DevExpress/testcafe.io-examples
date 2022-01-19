@@ -1,3 +1,3 @@
-interface BasicOption {
-    speed: Number;
+export interface BasicOption {
+    speed: number;
 }

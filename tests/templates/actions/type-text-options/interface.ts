@@ -1,15 +1,15 @@
-interface TypeTextOptions {
+export interface TypeTextOptions {
     modifiers: {
-        ctrl: Boolean;
-        alt: Boolean;
-        shift: Boolean;
-        meta: Boolean;
+        ctrl: boolean;
+        alt: boolean;
+        shift: boolean;
+        meta: boolean;
     };
 
-    offsetX: Number;
-    offsetY: Number;
-    caretPos: Number;
-    replace: Boolean;
-    paste: Boolean;
-    speed: Number;
+    offsetX: number;
+    offsetY: number;
+    caretPos: number;
+    replace: boolean;
+    paste: boolean;
+    speed: number;
 }

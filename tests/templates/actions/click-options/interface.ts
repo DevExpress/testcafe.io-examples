@@ -1,13 +1,13 @@
-interface ClickOptions {
+export interface ClickOptions {
     modifiers: {
-        ctrl: Boolean;
-        alt: Boolean;
-        shift: Boolean;
-        meta: Boolean;
+        ctrl: boolean;
+        alt: boolean;
+        shift: boolean;
+        meta: boolean;
     };
 
-    offsetX: Number;
-    offsetY: Number;
-    caretPos: Number;
-    speed: Number;
+    offsetX: number;
+    offsetY: number;
+    caretPos: number;
+    speed: number;
 }

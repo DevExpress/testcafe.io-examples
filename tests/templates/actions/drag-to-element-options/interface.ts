@@ -1,14 +1,14 @@
-interface DragToElementOptions {
+export interface DragToElementOptions {
     modifiers: {
-        ctrl: Boolean;
-        alt: Boolean;
-        shift: Boolean;
-        meta: Boolean;
+        ctrl: boolean;
+        alt: boolean;
+        shift: boolean;
+        meta: boolean;
     };
 
-    offsetX: Number;
-    offsetY: Number;
-    destinationOffsetX: Number;
-    destinationOffsetY: Number;
-    speed: Number;
+    offsetX: number;
+    offsetY: number;
+    destinationOffsetX: number;
+    destinationOffsetY: number;
+    speed: number;
 }

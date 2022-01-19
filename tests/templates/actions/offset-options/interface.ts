@@ -1,4 +1,4 @@
-interface OffsetOptions {
-    offsetX: Number;
-    offsetY: Number;
+export interface OffsetOptions {
+    offsetX: number;
+    offsetY: number;
 }

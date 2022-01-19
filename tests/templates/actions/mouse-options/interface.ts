@@ -1,12 +1,12 @@
-interface MouseOptions {
+export interface MouseOptions {
     modifiers: {
-        ctrl: Boolean;
-        alt: Boolean;
-        shift: Boolean;
-        meta: Boolean;
+        ctrl: boolean;
+        alt: boolean;
+        shift: boolean;
+        meta: boolean;
     };
 
-    offsetX: Number;
-    offsetY: Number;
-    speed: Number;
+    offsetX: number;
+    offsetY: number;
+    speed: number;
 }
