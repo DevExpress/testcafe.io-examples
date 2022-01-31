@@ -7,7 +7,7 @@ const articleFunction = Selector(() => {
 });
 
 fixture`Select page element - create Selectors`
-    .page('../pages/article-content.html');
+    .page('./pages/article-content.html');
 
 test('Selectors exists', async (t) => {
     await t.expect(articleString.exists).ok()
