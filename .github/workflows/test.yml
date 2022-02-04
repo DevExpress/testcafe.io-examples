@@ -15,5 +15,11 @@ jobs:
         uses: actions/checkout@v2
       - name: Npm install
         run: npm install
+      - name: Npm install react
+        run: npm run install:react
+      - name: Build react app
+        run: npm run build:react
+      - name: Start react app
+        run: npm run start:react
       - name: Run Tests
         run: npm run test
