@@ -15,6 +15,9 @@
   "scripts": {
     "lint": "eslint interfaces/**/*.js tests/**/*.js",
     "examples": "node testing/index.js",
-    "test": "npm run lint & npm run examples"
+    "test": "npm run lint & npm run examples",
+    "install:react": "cd ./react-app && npm install",
+    "build:react": "cd ./react-app && npm run build",
+    "start:react": "cd ./react-app && npm run start"
   }
 }
