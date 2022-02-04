@@ -1,22 +1,28 @@
 import { useState } from 'react';
 
-const TodoList = ({items}) => {
+const TodoItem = ({ text }) => {
+    return (
+        <li>{text}</li>
+    );
+};
+
+const TodoList = ({ items }) => {
     return (
         <ul>
             {items.map(item => (
-                <li key={item.id}>{item.text}</li>
+                <TodoItem key={item.id} text={item.text}/>
             ))}
         </ul>
     );
-}
+};
 
 const TodoApp = () => {
     const [items, setItems] = useState([]);
-    const [text, setText] = useState('');
+    const [text, setText]   = useState('');
 
     const handleChange = (e) => {
         setText(e.target.value);
-    }
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,17 +31,17 @@ const TodoApp = () => {
         }
         const newItem = {
             text: text,
-            id: Date.now()
+            id:   items.length + 1
         };
 
         setText('');
         setItems((prevState => prevState.concat(newItem)));
-    }
+    };
 
     return (
         <div>
             <h3>TODO</h3>
-            <TodoList items={items} />
+            <TodoList items={items}/>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="new-todo">
                     What needs to be done?
@@ -45,12 +51,13 @@ const TodoApp = () => {
                     onChange={handleChange}
                     value={text}
                 />
-                <button>
-                    Add #{items.length + 1}
+                <button id="submit">
+                    Add
                 </button>
             </form>
+            <span>{items.length}</span>
         </div>
-    )
-}
+    );
+};
 
 export default TodoApp;
