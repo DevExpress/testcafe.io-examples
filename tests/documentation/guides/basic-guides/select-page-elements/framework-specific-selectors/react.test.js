@@ -5,7 +5,7 @@ const TodoList   = ReactSelector('TodoApp TodoList');
 const itemsCount = ReactSelector('TodoApp div span');
 
 fixture`Framework-Specific Selectors - React`
-    .page('http://localhost:3000/');
+    .page('http://localhost:3001/');
 
 test
     .before(async (t) => {
