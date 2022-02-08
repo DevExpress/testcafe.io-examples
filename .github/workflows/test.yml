@@ -16,10 +16,19 @@ jobs:
       - name: Npm install
         run: npm install
       - name: Npm install react
-        run: npm run install:react
+        run: |
+            cd react-app/
+            npm install
+        shell: bash
       - name: Build react app
-        run: npm run build:react
+        run: |
+           cd react-app/
+           npm run build
+        shell: bash
       - name: Start react app
-        run: npm run start:react
+        run: |
+           cd react-app/
+           npm run start &
+        shell: bash
       - name: Run Tests
         run: npm run test
