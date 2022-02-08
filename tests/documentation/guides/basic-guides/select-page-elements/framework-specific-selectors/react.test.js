@@ -1,11 +1,12 @@
 import { ReactSelector } from 'testcafe-react-selectors';
+import { REACT_PORT } from '../../../../../utils/constants';
 
 const TodoApp    = ReactSelector('TodoApp');
 const TodoList   = ReactSelector('TodoApp TodoList');
 const itemsCount = ReactSelector('TodoApp div span');
 
 fixture`Framework-Specific Selectors - React`
-    .page('http://localhost:3001/');
+    .page(`http://localhost:${REACT_PORT}/`);
 
 test
     .before(async (t) => {
