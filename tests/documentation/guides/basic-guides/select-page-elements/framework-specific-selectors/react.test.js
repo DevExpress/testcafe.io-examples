@@ -1,5 +1,5 @@
-import { ReactSelector } from 'testcafe-react-selectors';
 import { REACT_PORT } from '../../../../../utils/constants';
+import { ReactSelector } from 'testcafe-react-selectors';
 
 const TodoApp    = ReactSelector('TodoApp');
 const TodoList   = ReactSelector('TodoApp TodoList');
