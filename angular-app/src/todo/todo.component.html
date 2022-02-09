@@ -1,4 +1,4 @@
-<div class="main">
+<div>
   <h1>My To Do List</h1>
   <label for="addItemInput">What would you like to do today?</label>
 
@@ -10,9 +10,9 @@
     id="addItemInput"
   />
 
-  <button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
+  <button class="btn-primary" (click)="addItem(newItem.value)" id="submit">Add</button>
 
   <ul>
-    <li *ngFor="let item of items">{{item}}</li>
+    <todo-item *ngFor="let item of items" [description]="item"></todo-item>
   </ul>
 </div>
