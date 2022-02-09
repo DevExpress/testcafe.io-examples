@@ -19,15 +19,26 @@ jobs:
         run: |
             cd react-app/
             npm install
-        shell: bash
       - name: Build react app
         run: |
            cd react-app/
            npm run build
-        shell: bash
       - name: Start react app
         run: |
            cd react-app/
+           npm run start &
+        shell: bash
+      - name: Npm install angular
+        run: |
+            cd angular-app/
+            npm install
+      - name: Build angular app
+        run: |
+           cd angular-app/
+           npm run build
+      - name: Start angular app
+        run: |
+           cd angular-app/
            npm run start &
         shell: bash
       - name: Run Tests
