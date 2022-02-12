@@ -10,17 +10,11 @@
     "cross-env": "^7.0.3",
     "eslint": "^6.8.0",
     "openssl-self-signed-certificate": "^1.1.6",
-    "testcafe": "^1.18.3",
-    "testcafe-angular-selectors": "^0.4.1",
-    "testcafe-react-selectors": "^4.1.5",
-    "testcafe-vue-selectors": "^3.1.1"
+    "testcafe": "^1.18.3"
   },
   "scripts": {
     "lint": "eslint interfaces/**/*.js tests/**/*.js",
     "examples": "node testing/index.js",
-    "test": "npm run lint & npm run examples",
-    "install:react": "cd ./react-app && npm install",
-    "build:react": "cd ./react-app && npm run build",
-    "start:react": "cd ./react-app && npm run start"
+    "test": "npm run lint & npm run examples"
   }
 }
