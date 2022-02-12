@@ -3,9 +3,9 @@ import { Selector } from 'testcafe';
 fixture`TestController.expect.within`
     .page`https://devexpress.github.io/testcafe/example/`;
 
-test('ScrollTop of the \'html\' element should be within 200 and 300', async t => {
+test('ScrollTop of the \'html\' element should be within 0 and 400', async t => {
     await t.scroll('html', 'bottom');
-    await t.expect(Selector('html').scrollTop).within(0, 100);
+    await t.expect(Selector('html').scrollTop).within(0, 400);
 });
 
 test('Within should work', async t => {

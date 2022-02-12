@@ -7,9 +7,10 @@
   },
   "description": "This repository contains code examples for https://testcafe.io",
   "dependencies": {
+    "cross-env": "^7.0.3",
     "eslint": "^6.8.0",
     "openssl-self-signed-certificate": "^1.1.6",
-    "testcafe": "^1.16.0"
+    "testcafe": "^1.18.3"
   },
   "scripts": {
     "lint": "eslint interfaces/**/*.js tests/**/*.js",

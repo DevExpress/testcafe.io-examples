@@ -1,6 +1,8 @@
 const reporter = require('../../reporter');
 const tests = [
-    '../../../../tests/documentation/**/*',
+    '../../../../tests/documentation/getting-started/**/*',
+    '../../../../tests/documentation/reference/test-api/**/*',
+    '../../../../tests/documentation/guides/**/*',
     '../../../../tests/templates/**/*',
 ];
 
