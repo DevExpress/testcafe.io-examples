@@ -1,7 +1,7 @@
 import { Selector } from 'testcafe';
 
 fixture`Access Child Nodes in the DOM Hierarchy`
-    .page`../pages/adjacent-elements.html`;
+    .page`../../pages/adjacent-elements.html`;
 
 const body              = Selector('body');
 const firstChildElement = body.child(0); // <p>
