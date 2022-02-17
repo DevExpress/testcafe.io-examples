@@ -25,3 +25,22 @@ test('Button click', async t => {
         // The default timeout is 3000 ms.
         .expect(btn.textContent).contains('Loading...');
 });
+
+fixture`Smart Assertion Limitations`
+    .page`../pages/index.html`;
+
+test('Button click', async t => {
+    const btn = Selector('#btn');
+
+    await t
+        .click(btn)
+        .expect(await btn.textContent).contains('Loading...'); //fails because the selector value does not update according to page behavior
+
+    await t
+        .click(btn)
+        .expect(btn()).contains({ innerText: 'Loading...'}); //fails because the selector value does not update according to page behavior
+
+    await t
+        .click(btn)
+        .expect(btn.innerText).eql('Loading...'); //passes because the promise returned from the selector eventually updates
+});
