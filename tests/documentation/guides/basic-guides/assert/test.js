@@ -13,7 +13,7 @@ test('Check property of element', async t => {
 });
 
 fixture`Smart Assertion Query Mechanism`
-    .page`../pages/index.html`;
+    .page`./pages/index.html`;
 
 test('Button click', async t => {
     const btn = Selector('#btn');
@@ -27,18 +27,29 @@ test('Button click', async t => {
 });
 
 fixture`Smart Assertion Limitations`
-    .page`../pages/index.html`;
+    .page`./pages/index.html`;
 
 test('Button click', async t => {
     const btn = Selector('#btn');
 
-    await t
-        .click(btn)
-        .expect(await btn.textContent).contains('Loading...'); //fails because the selector value does not update according to page behavior
+    try {
+        await t
+            .click(btn)
+            .expect(await btn.textContent).contains('Loading...'); //fails because the selector value does not update according to page behavior
+    }
+    catch (e) {
+        await t.expect(e.errMsg).contains('expected \'Click me!\' to include \'Loading...\'');
+    }
 
-    await t
-        .click(btn)
-        .expect(btn()).contains({ innerText: 'Loading...'}); //fails because the selector value does not update according to page behavior
+    try {
+        await t
+            .click(btn)
+            .expect(btn()).contains({ innerText: 'Loading...' }); //fails because the selector value does not update according to page behavior
+    }
+    catch (e) {
+        await t.expect(e.errMsg).contains('expected \'Click me!\' to include \'Loading...\'');
+        console.log(e);
+    }
 
     await t
         .click(btn)
