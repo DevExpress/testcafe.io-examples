@@ -12,3 +12,9 @@ test('Obtain Element State', async t => {
 
     await t.expect(windowsInputChecked).ok();
 });
+
+test('Check header text', async t => {
+    const headerText = await Selector('header').textContent;
+
+    await t.expect(headerText).contains('Example');
+});
