@@ -9,5 +9,5 @@ test('Should set cookies by name and value', async t => {
 
     await t
         .expect(name).eql('apiCookie1')
-        .expect(value ).eql('value1');
+        .expect(value).eql('value1');
 });
