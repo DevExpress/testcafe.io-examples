@@ -18,14 +18,14 @@ test('Should set cookies by name and value', async t => {
 fixture`[API] Set Cookies`
     .page('https://devexpress.github.io/testcafe/example/');
 
-test('Should set cookies for a specified url', async t => {
-    //set a cookie for example's page
+test('Should assign cookies to the specified url', async t => {
+    //set a cookie for the examples page
     await t.setCookies({ name: 'apiCookie1', value: 'value1' }, 'https://devexpress.github.io/testcafe/example/');
 
-    //set a cookie for localhost page
+    //set a cookie for localhost
     await t.setCookies({ name: 'apiCookie2', value: 'value2' }, 'http://localhost');
 
-    //get cookies for all tested pages
+    //retrieve all the cookies
     const cookies = await t.getCookies();
 
     await t

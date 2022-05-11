@@ -16,23 +16,23 @@ test('Should get cookies by name', async t => {
 fixture('[API] Get Cookies')
     .page('https://devexpress.github.io/testcafe/example/');
 
-test('Should get cookies for a specified url', async t => {
-    //set a cookie for example's page
+test('Should retrieve cookies with the specified url', async t => {
+    //set a cookie for the examples page
     await t.setCookies({ name: 'apiCookie1', value: 'value1' });
 
-    //set a cookie for localhost page
+    //set a cookie for localhost
     await t.setCookies({ name: 'apiCookie2', value: 'value2' }, 'http://localhost');
 
-    //get all tested pages' cookies
+    //retrieve all the cookies
     let cookies = await t.getCookies(['apiCookie1', 'apiCookie2']);
 
     await t.expect(cookies.length).eql(2);
 
-    //get example page's cookies
+    //retrieve cookies from the examples page
     cookies = await t.getCookies(['apiCookie1', 'apiCookie2'], 'https://devexpress.github.io/testcafe/example/');
     await t.expect(cookies.length).eql(1);
 
-    //get localhost page's cookies
+    //retrieve cookies from localhost
     cookies = await t.getCookies(['apiCookie1', 'apiCookie2'], 'https://localhost');
     await t.expect(cookies.length).eql(1);
 });
@@ -40,28 +40,28 @@ test('Should get cookies for a specified url', async t => {
 fixture('[API] Get Cookies')
     .page('https://devexpress.github.io/testcafe/example/');
 
-test('Should get all cookies for specified url', async t => {
-    //set a cookie for example's page
+test('Should retrieve cookies with the specified url', async t => {
+    //set a cookie for the examples page
     await t.setCookies({ name: 'apiCookie1', value: 'value1' });
 
-    //set a cookie for thank-you's page
+    //set a cookie for the 'thank you' page
     await t.setCookies({
         name:  'apiCookie2',
         value: 'value2',
     }, 'https://devexpress.github.io/testcafe/example/thank-you.html');
 
-    //get all cookies for devexpress.github.io
+    //retrieve all the cookies from devexpress.github.io
     let cookies = await t.getCookies({ domain: 'devexpress.github.io' });
 
     await t.expect(cookies.length).eql(2);
 
-    //get all cookies for example's page
+    //retrieve all the cookies from the examples page
     cookies = await t.getCookies({ domain: 'devexpress.github.io', path: '/testcafe/example/' });
     await t
         .expect(cookies.length).eql(1)
         .expect(cookies[0]).contains({ name: 'apiCookie1', value: 'value1' });
 
-    //get all cookies for thank-you's page
+    //retrieve all the cookies from the 'thank you' page
     cookies = await t.getCookies({ domain: 'devexpress.github.io', path: '/testcafe/example/thank-you.html' });
     await t
         .expect(cookies.length).eql(2)
