@@ -19,10 +19,10 @@ test('Should delete cookies with the specified url', async t => {
     //set a cookie for localhost
     await t.setCookies({ name: 'apiCookie2', value: 'value2' }, 'http://localhost');
 
-    //check all tested page cookies
+    //check the total number of cookies
     await t.expect((await t.getCookies()).length).eql(2);
 
-    //delete localhost page's cookie
+    //delete the localhost cookie
     await t.deleteCookies('apiCookie2', 'http://localhost');
 
     const cookies = await t.getCookies();
@@ -35,7 +35,7 @@ test('Should delete cookies with the specified url', async t => {
 fixture('[API] Delete Cookies')
     .page('https://devexpress.github.io/testcafe/example/');
 
-test('Should delete all cookies for specified url', async t => {
+test('Should delete all the cookies with the specified url', async t => {
     //set a cookie for the examples page
     await t.setCookies({ name: 'apiCookie1', value: 'value1' });
 
