@@ -2,7 +2,7 @@ fixture('[API] Delete Cookies')
     .page('https://devexpress.github.io/testcafe/example/');
 
 test('Should delete cookies with the specified url', async t => {
-    //set a cookie for the examples page
+    //set a cookie for the Example page
     await t.setCookies({ name: 'apiCookie1', value: 'value1' });
 
     //set a cookie for localhost
