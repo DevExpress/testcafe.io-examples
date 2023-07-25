@@ -17,17 +17,18 @@ test('Run script from the file', async (t) => {
 fixture`Fixture.clientScripts`
     .clientScripts({
         page:    /\/testcafe\/example\//,
-        content: 'Geolocation.prototype.getCurrentPosition = () => ({ latitude: 0, longitude: 0 });',
+        content: 'Geolocation.prototype.getCurrentPosition = success => success({ latitude: 0, longitude: 0 });',
     });
 
 test('Should mock getCurrentPosition for the Specific Pages', async (t) => {
-    const clientFunc = ClientFunction(() => {
-        return navigator.geolocation.getCurrentPosition();
-    });
+    const getGeolocation = ClientFunction(() => new Promise((resolve, reject) =>
+        navigator.geolocation.getCurrentPosition(resolve, reject),
+    ));
 
     await t
         .navigateTo('https://devexpress.github.io/testcafe/example/')
-        .expect(clientFunc()).eql({ latitude: 0, longitude: 0 });
+        .setNativeDialogHandler(() => true)
+        .expect(getGeolocation()).eql({ latitude: 0, longitude: 0 });
 });
 
 fixture`Fixture.clientScripts`

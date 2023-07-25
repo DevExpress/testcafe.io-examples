@@ -22,7 +22,7 @@ const tests = [
         .reporter(reporter)
         .src(tests)
         .browsers('chrome')
-        .run();
+        .run({ disableNativeAutomation: true });
 
     await testcafe.close();
 })();
