@@ -30,8 +30,8 @@ function reportExecutionResult (executable, executionResult) {
 let exitCode = 0;
 
 (async () => {
-    for (let programmaticInterfaceExecutable of programmaticInterfaceExecutables) {
-        const resolvedExecutablePath = resolve(__dirname,programmaticInterfaceExecutable);
+    for (const programmaticInterfaceExecutable of programmaticInterfaceExecutables) {
+        const resolvedExecutablePath = resolve(__dirname, programmaticInterfaceExecutable);
         const command                = `node ${resolvedExecutablePath}`;
         const executableCwd          = dirname(resolvedExecutablePath);
         const result                 = await promisifiedExec(command, { cwd: executableCwd });

@@ -11,7 +11,7 @@ test('My test', async () => {
     /* ... */
 }).clientScripts({
     page:    /\/testcafe\/example\//,
-    content: 'Geolocation.prototype.getCurrentPosition = () => ({latitude: 0, longitude: 0});',
+    content: 'Geolocation.prototype.getCurrentPosition = success => success({latitude: 0, longitude: 0});',
 });
 
 test('My test', async () => {
