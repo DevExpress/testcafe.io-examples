@@ -1,5 +1,5 @@
 fixture`[API] Get Cookies`
-    .page('https://devexpress.github.io/testcafe/example/')
+    .page('https://devexpress.github.io/testcafe/example/');
 
 test('Should retrieve a cookie by name', async t => {
     //set a cookie for the Example page
