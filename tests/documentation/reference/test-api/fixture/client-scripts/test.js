@@ -25,10 +25,9 @@ test('Should mock getCurrentPosition for the Specific Pages', async (t) => {
         navigator.geolocation.getCurrentPosition(resolve, reject),
     ));
 
-    await t
-        .navigateTo('https://devexpress.github.io/testcafe/example/')
-        .setNativeDialogHandler(() => true)
-        .expect(getGeolocation()).eql({ latitude: 0, longitude: 0 });
+    await t.navigateTo('https://devexpress.github.io/testcafe/example/');
+    await t.setNativeDialogHandler(() => true);
+    await t.expect(getGeolocation()).eql({ latitude: 0, longitude: 0 });
 });
 
 fixture`Fixture.clientScripts`
