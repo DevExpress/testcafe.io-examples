@@ -5,15 +5,11 @@ jobs:
   test:
     name: test
     runs-on: windows-latest
+    environment: CI
     steps:
-      - name: Setup Node
-        uses: actions/setup-node@v2
+      - uses: DevExpress/testcafe-build-system/actions/prepare@main
         with:
           node-version: '16'
-      - run: node -v
-      - name: Check out the repository
-        uses: actions/checkout@v2
-      - name: Npm install
-        run: npm install
+      - run: npm ci --legacy-peer-deps
       - name: Run Tests
         run: npm run test
